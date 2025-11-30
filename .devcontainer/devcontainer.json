@@ -1,5 +1,5 @@
 {
-  "name": "Python 3.12 + uv + ruff (Fedora)",
+  "name": "Python 3.12.12 + uv + ruff",
   "build": {
     "dockerfile": "Dockerfile",
     "context": "."
@@ -15,8 +15,8 @@
   // Features to add
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
-      "installZsh": true,
-      "installOhMyZsh": true,
+      "installZsh": false,
+      "installOhMyZsh": false,
       "upgradePackages": true
     },
     "ghcr.io/devcontainers/features/git:1": {
@@ -40,7 +40,7 @@
         "catppuccin.catppuccin-vsc"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/usr/bin/python3.12",
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
         "python.linting.enabled": true,
         "python.linting.ruffEnabled": true,
         "python.formatting.provider": "none",
@@ -73,8 +73,11 @@
   },
 
   // Post-create command
-  "postCreateCommand": "python --version && uv --version && ruff --version && jupyter --version",
+  "postCreateCommand": "python --version && uv --version && ruff --version",
 
-  // Use root user (can be changed to 'vscode' if preferred)
-  "remoteUser": "root"
+  // Use non-root user
+  "remoteUser": "vscode",
+
+  // Set bash as default shell
+  "terminal.integrated.defaultProfile.linux": "bash"
 }
