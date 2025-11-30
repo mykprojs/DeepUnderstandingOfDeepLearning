@@ -29,6 +29,11 @@
     "UV_LINK_MODE": "copy"
   },
 
+  // Persist VS Code Server to avoid re-downloading
+  "mounts": [
+    "source=vscode-server,target=/home/vscode/.vscode-server,type=volume"
+  ],
+
   // VS Code customizations
   "customizations": {
     "vscode": {
